@@ -1,3 +1,8 @@
 language: cpp
 script:
     mkdir build && cd build && cmake -DENABLE_TESTS=ON .. && make && make test
+
+addons:
+    apt:
+        packages:
+            - g++-5
