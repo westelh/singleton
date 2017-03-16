@@ -5,4 +5,4 @@ script:
 addons:
     apt:
         packages:
-            - g++-5
+            - g++
