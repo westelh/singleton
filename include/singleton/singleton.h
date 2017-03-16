@@ -10,8 +10,8 @@ namespace elh {
     class singleton final {
         public:
             template <class... Args>
-            static T& get_instance(Args... args) {
-                std::call_once(flag, create<Args...>, args...);
+            static T& get_instance(Args&&... args) {
+                std::call_once(flag, create<Args&&...>, args...);
                 if (instance == nullptr) throw bad_state("Instance wasn't created in spite of call create()");
                 return *instance;
             }
@@ -23,7 +23,7 @@ namespace elh {
 
         private:
             template <class... Args>
-            static void create(Args... args) {
+            static void create(Args&&... args) {
                 instance = new T { args... };
                 singleton_finalizer::add_finalizer(destroy);
             }
