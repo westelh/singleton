@@ -24,16 +24,21 @@ namespace elh {
             static std::once_flag flag;
             static T *instance;
 
-            singleton() = delete;
-
         public:
             // Interface for users
             template <class... Args>
-            static T& get_instance(Args&&... args) {
-                std::call_once(flag, create<Args&&...>, args...);
+            static T& get_instance(Args... args) {
+                std::call_once(flag, create<Args...>, std::forward<Args>(args)...);
                 if (instance == nullptr) throw std::runtime_error{"Instance is null in spite of create() called."};
                 return *instance;
             }
+            
+            singleton() = delete;
+            ~singleton() = delete;
+            singleton(singleton&) = delete;
+            singleton& operator=(singleton&) = delete;
+            singleton(singleton&&) = delete;
+            singleton&& operator=(singleton&&) = delete;
     };
 }
 
