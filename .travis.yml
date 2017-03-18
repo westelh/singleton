@@ -17,9 +17,8 @@ addons:
 before_script:
     - install -d gtest_build
     - pushd gtest_build
-    - cmake -DCMAKE_CXX_COMPILER=clang++-3.7 /usr/src/gtest/
-    - make
-    - sudo cp *.a /usr/lib
+    - cmake /usr/src/gtest/
+    - sudo make install
     - popd
 
 
