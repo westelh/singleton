@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.5)
 project(singleton CXX)
 
 set(CMAKE_DISABLE_IN_SOURCE_BUILD)
