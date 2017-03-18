@@ -18,7 +18,8 @@ before_script:
     - install -d gtest_build
     - pushd gtest_build
     - cmake /usr/src/gtest/
-    - sudo make install
+    - sudo make
+    - export GTEST_ROOT=./
     - popd
 
 
