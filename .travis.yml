@@ -6,6 +6,8 @@ addons:
         packages:
             - gcc-5
             - g++-5
+        sources:
+            - ubuntu-toolchain-r-test
 
 before_install:
     - sudo add-apt-repository ppa:george-edison55/cmake-3.x
