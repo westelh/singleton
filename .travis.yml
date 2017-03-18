@@ -9,19 +9,9 @@ addons:
             - g++-5
             - cmake-data
             - cmake
-            - libgtest-dev
         sources:
             - ubuntu-toolchain-r-test
             - george-edison55-precise-backports
-
-before_script:
-    - install -d gtest_build
-    - pushd gtest_build
-    - cmake /usr/src/gtest/
-    - sudo make
-    - export GTEST_ROOT=./
-    - popd
-
 
 script:
     - sudo ln -s /usr/bin/g++-5 /usr/local/bin/g++
