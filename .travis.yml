@@ -15,9 +15,17 @@ addons:
             - ubuntu-toolchain-r-test
             - george-edison55-precise-backports
 
-script:
+before_install:
     - sudo ln -s /usr/bin/g++-5 /usr/local/bin/g++
     - mkdir build && cd build
+    - mkdir 3rd && cd 3rd
+    - wget https://github.com/google/googletest/archive/release-1.8.0.zip
+    - unzip release-1.8.0.zip
+    - cd ..
+
+install:
     - cmake -DENABLE_TESTS=ON ..
     - make
+
+script:
     - make test
