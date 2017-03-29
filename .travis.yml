@@ -21,7 +21,6 @@ before_install:
     - mkdir 3rd && cd 3rd
     - wget https://github.com/google/googletest/archive/release-1.8.0.zip
     - unzip release-1.8.0.zip
-    - ls
     - cd ..
 
 install:
