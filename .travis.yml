@@ -1,4 +1,4 @@
-sudo: required
+sudo: false
 language: cpp
 compiler: gcc
 
@@ -7,8 +7,8 @@ cache: apt
 addons:
     apt:
         packages:
-            - gcc-5
-            - g++-5
+            - gcc-6
+            - g++-6
             - cmake-data
             - cmake
         sources:
@@ -16,7 +16,6 @@ addons:
             - george-edison55-precise-backports
 
 before_install:
-    - sudo ln -s /usr/bin/g++-5 /usr/local/bin/g++
     - mkdir build && cd build
     - mkdir 3rd && cd 3rd
     - wget https://github.com/google/googletest/archive/release-1.8.0.zip
@@ -24,7 +23,7 @@ before_install:
     - cd ..
 
 install:
-    - cmake -DENABLE_TESTS=ON ..
+    - cmake -DCMAKE_CXX_COMPILER=g++-6 -DBUILD_TESTS=ON ..
     - make
 
 script:
