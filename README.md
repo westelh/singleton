@@ -1,4 +1,4 @@
 # singleton
-C++ Singleton inprementation (Inspired from Mozc project's solution)
+C++ Singleton inprementation (Mozc project solution)
 
 Personal use.
